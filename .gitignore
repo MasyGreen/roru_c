@@ -1,0 +1,12 @@
+.cr
+.vs
+rollerru.Module/bin
+rollerru.Module/obj
+rollerru.Module.Web/bin
+rollerru.Module.Web/obj
+rollerru.Module.Win/bin
+rollerru.Module.Win/obj
+rollerru.Web/bin
+rollerru.Web/obj
+rollerru.Win/bin
+rollerru.Win/obj

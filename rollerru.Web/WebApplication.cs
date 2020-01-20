@@ -24,6 +24,7 @@ namespace rollerru.Web {
         private DevExpress.ExpressApp.ReportsV2.Web.ReportsAspNetModuleV2 reportsAspNetModuleV2;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
         private DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule validationAspNetModule;
+        private rollerru.Web.CustomAuthentication customAuthentication1;
 
         #region Default XAF configuration options (https://www.devexpress.com/kb=T501418)
         static rollerruAspNetApplication() {
@@ -43,6 +44,8 @@ namespace rollerru.Web {
         public rollerruAspNetApplication() {
             InitializeComponent();
 			InitializeDefaults();
+            //this.LinkNewObjectToParentImmediately = false;
+            //this.customAuthentication1.Application = this;
         }
         protected override IViewUrlManager CreateViewUrlManager() {
             return new ViewUrlManager();
@@ -97,6 +100,8 @@ namespace rollerru.Web {
             this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
             this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
             this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
+
+            this.customAuthentication1 = new CustomAuthentication();
             this.objectsModule = new DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule();
             this.dashboardsModule = new DevExpress.ExpressApp.Dashboards.DashboardsModule();
             this.dashboardsAspNetModule = new DevExpress.ExpressApp.Dashboards.Web.DashboardsAspNetModule();
@@ -108,7 +113,7 @@ namespace rollerru.Web {
             // 
             // securityStrategyComplex1
             // 
-            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
+            this.securityStrategyComplex1.Authentication = this.customAuthentication1;//this.authenticationStandard1;
             this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);
             this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);
             // 

@@ -12,7 +12,28 @@ using DevExpress.ExpressApp.Web;
 using DevExpress.Web;
 
 namespace rollerru.Web {
+
+    public class MyAuthenticationStandard : AuthenticationStandard
+    {
+        public override bool AskLogonParametersViaUI
+        {
+            get
+            {
+                return AskLogonParameters;
+            }
+        }
+        private bool _AskLogonParameters = true;
+        public bool AskLogonParameters
+        {
+            get { return _AskLogonParameters; }
+            set
+            {
+                _AskLogonParameters = value;
+            }
+        }
+    }
     public class Global : System.Web.HttpApplication {
+
         public Global() {
             InitializeComponent();
         }
@@ -44,7 +65,10 @@ namespace rollerru.Web {
             }
 #endif
             WebApplication.Instance.Setup();
+            ((AuthenticationStandardLogonParameters)SecuritySystem.LogonParameters).UserName = UserName;
+            ((AuthenticationStandardLogonParameters)SecuritySystem.LogonParameters).Password = "";
             WebApplication.Instance.Start();
+            
         }
         protected void Application_BeginRequest(Object sender, EventArgs e) {
         }
