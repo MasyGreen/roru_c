@@ -7,3 +7,6 @@
 # Файлы
 
 Приложение визуализирует файлы https://github.com/MasyGreen/Ro_ru.git
+
+# Установка
+git clone https://github.com/MasyGreen/roru_c.git                                                     	
