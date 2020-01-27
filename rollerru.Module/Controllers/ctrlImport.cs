@@ -181,10 +181,10 @@ namespace rollerru.Module.Controllers
                             el.Post_Name = _POST_NAME;
                             el.Post_Date = _POST_DATE;
 
-                            if (_POST_NAME.ToUpper().IndexOf("ОТМЕНА") == 0)
-                                el.Post_Status = dbPost.TypeStatus.Cancel;
-                            else
+                            if (_POST_NAME.ToUpper().IndexOf("ОТМЕНА") == -1)
                                 el.Post_Status = dbPost.TypeStatus.Assept;
+                            else
+                                el.Post_Status = dbPost.TypeStatus.Cancel;
 
                             el.User_Code = _USER_CODE;
                             el.User_Name = _USER_NAME;
