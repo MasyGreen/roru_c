@@ -65,7 +65,7 @@ namespace rollerru.Web {
             }
 #endif
             WebApplication.Instance.Setup();
-            ((AuthenticationStandardLogonParameters)SecuritySystem.LogonParameters).UserName = UserName;
+            ((AuthenticationStandardLogonParameters)SecuritySystem.LogonParameters).UserName = "Report";//UserName;
             ((AuthenticationStandardLogonParameters)SecuritySystem.LogonParameters).Password = "";
             WebApplication.Instance.Start();
             
